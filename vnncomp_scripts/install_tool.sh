@@ -18,7 +18,7 @@ echo "Installing $TOOL_NAME"
 TOOL_DIR=$(dirname $(dirname $(realpath $0)))
 
 export DEBIAN_FRONTEND=noninteractive
-sudo -E DEBIAN_FRONTEND=noninteractive apt purge snapd unattended-upgrades
+sudo -E DEBIAN_FRONTEND=noninteractive apt purge -y snapd unattended-upgrades
 sudo killall -9 unattended-upgrade-shutdown
 sudo -E DEBIAN_FRONTEND=noninteractive apt update
 sudo -E DEBIAN_FRONTEND=noninteractive apt upgrade -y
