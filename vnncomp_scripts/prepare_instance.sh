@@ -61,9 +61,12 @@ if [ "$CATEGORY" == "nn4sys" ]; then
 	prepare_timeout=275
 elif [ "$CATEGORY" == "vggnet16_2022" ]; then
 	prepare_timeout=90
+elif [ "$CATEGORY" == "tllverifybench" ]; then
+	prepare_timeout=90
 else
-	prepare_timeout=35
+	prepare_timeout=45
 fi
+echo "Preparation time is roughly ${prepare_timeout} seconds for $CATEGORY"
 timeout -k 5 ${prepare_timeout} ${VNNCOMP_PYTHON_PATH}/python ${TOOL_DIR}/complete_verifier/vnncomp_main_2022.py "$CATEGORY" "$ONNX_FILE" "$VNNLIB_FILE" "$temp_file" 1 > /dev/null
 rm ${temp_file}
 
