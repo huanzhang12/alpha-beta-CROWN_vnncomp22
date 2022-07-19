@@ -16,5 +16,6 @@ bab:
     method: sb-fast
     input_split:
       enable: True
+      sort_domain_interval: 1
 attack:
   pgd_order: skip
