@@ -1,0 +1,26 @@
+# python bab_verification_general.py --dataset CIFAR --batch_size 2000 --branching_candidates 10 --branching_reduceop max --lr_beta 0.01 --root_path ../../vnncomp2021/benchmarks/oval21 --csv_name oval21_instances.csv
+
+general:
+  mode: verified-acc
+  root_path: ../../vnncomp2022_benchmarks/benchmarks/oval21  # Please update this path to point to the VNN-COMP 2022 repo
+  csv_name: instances.csv
+  conv_mode: matrix
+data:
+  dataset: CIFAR
+solver:
+  beta-crown:
+    batch_size: 2000
+    lr_beta: 0.01
+  start_save_best: -1
+  prune_after_crown: False
+bab:
+  branching:
+    reduceop: max
+    candidates: 10
+  cut:
+    enabled: True
+    cplex_cuts: True
+    bab_cut: True
+    lr_beta: 0.01
+attack:
+  pgd_order: middle

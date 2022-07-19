@@ -1,0 +1,12 @@
+git+https://github.com/KaidiXu/onnx2pytorch.git
+onnx==1.10.0
+onnxruntime==1.8.1
+protobuf==3.17.3
+sortedcontainers==2.4.0
+appdirs==1.4.4
+flatbuffers==2.0
+pyyaml>=6.0
+pandas>=1.3.4
+psutil>=5.9.0
+termcolor>=1.1.0
+gpustat>=0.6.0

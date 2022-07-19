@@ -1,0 +1,29 @@
+general:
+  root_path: ../../vnncomp2022-all/vnn-comp-2022-Carvana-unet
+  csv_name: Carvana-unet_instances.csv
+  enable_incomplete_verification: False
+  conv_mode: patches
+model:
+  onnx_quirks: "{'Reshape': {'fix_batch_size': True}}"
+data:
+  dataset: Carvana
+  num_outputs: 1
+  start: 80
+  end: 160
+solver:
+  bound_prop_method: init-crown
+  crown:
+    batch_size: 4096
+  alpha-crown:
+    full_conv_alpha: False
+  beta-crown:
+    batch_size: 64  # Number of parallel domains to compute on GPU.
+    iteration: 10  # Iterations for computing intermediate layer bounds.
+bab:
+  initial_max_domains: 1
+  decision_thresh: 1314
+  branching:
+    reduceop: max
+    candidates: 10
+attack:
+  pgd_order: skip
